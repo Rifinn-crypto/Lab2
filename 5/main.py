@@ -67,5 +67,3 @@ if __name__ == "__main__":
         obj = DateIteratorYearOrWeek("C:/Users/esh20/PycharmProjects/Lab2/2/")
         while True:
             print(next(obj))
-    except StopIteration:
-        print("Out of bounds")
