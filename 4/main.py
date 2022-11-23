@@ -10,7 +10,7 @@ def formatted_file(input_file: str) -> pd.DataFrame:
     df = pd.read_csv(input_file)
     df["Day"] = pd.to_datetime(df.Day, format="%Y-%m-%d")
     df["Day"] = df["Day"].dt.date
-    return df
+    return d
 
 
 def get_data(input_file: str, date: datetime.date) -> Union[numpy.float64, None]:
