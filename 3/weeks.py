@@ -27,7 +27,10 @@ def range_of_years(input_file: str) -> list:
     return [start_range, end_range]
 
 
-
+def max_week(df: pd.DataFrame) -> int:
+    start_range = df[df["Week"] == df["Week"].max()]
+    value = start_range["Week"].values[0]
+    return value
 
 
 def min_week(df: pd.DataFrame) -> int:
