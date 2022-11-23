@@ -12,11 +12,7 @@ def formatted_file(input_file: str) -> pd.DataFrame:
     return df
 
 
-def clear_file(df: pd.DataFrame) -> pd.DataFrame:
-    del df["Year"]
-    del df["Week"]
-    del df["Day1"]
-    return df
+
 
 
 def range_of_years(input_file: str) -> list:
