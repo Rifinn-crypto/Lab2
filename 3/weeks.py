@@ -12,7 +12,11 @@ def formatted_file(input_file: str) -> pd.DataFrame:
     return df
 
 
-
+def clear_file(df: pd.DataFrame) -> pd.DataFrame:
+    del df["Year"]
+    del df["Week"]
+    del df["Day1"]
+    return df
 
 
 def range_of_years(input_file: str) -> list:
@@ -23,10 +27,7 @@ def range_of_years(input_file: str) -> list:
     return [start_range, end_range]
 
 
-def max_week(df: pd.DataFrame) -> int:
-    start_range = df[df["Week"] == df["Week"].max()]
-    value = start_range["Week"].values[0]
-    return value
+
 
 
 def min_week(df: pd.DataFrame) -> int:
