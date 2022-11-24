@@ -3,6 +3,8 @@ import autopep8
 
 
 def formatted_file(input_file: str) -> pd.DataFrame:
+    """Форматирование файла
+    Возвращает фрейм данных с добавлением столбцов"""
     df = pd.read_csv(file)
 
     df["Day"] = pd.to_datetime(df.Day, format="%Y-%m-%d")
@@ -13,6 +15,7 @@ def formatted_file(input_file: str) -> pd.DataFrame:
 
 
 def clear_file(df: pd.DataFrame) -> pd.DataFrame:
+    "Очистка файла возвращает базу данных без добавленного столбца"
     del df["Year"]
     del df["Week"]
     del df["Day1"]
@@ -20,6 +23,9 @@ def clear_file(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def range_of_years(input_file: str) -> list:
+    """Диапазон годов в наборе данных
+    input_file - файл с набором данных
+    возвращает список с первым и последним годом в наборе данных"""
     df = formatted_file(input_file)
 
     start_range = df["Year"].iat[0]
@@ -28,18 +34,22 @@ def range_of_years(input_file: str) -> list:
 
 
 def max_week(df: pd.DataFrame) -> int:
+    """Возвращает Максимальное количество недель за один год"""
     start_range = df[df["Week"] == df["Week"].max()]
     value = start_range["Week"].values[0]
     return value
 
 
 def min_week(df: pd.DataFrame) -> int:
+    """Возвращает Максимальное количество недель за один год"""
     end_range = df[df["Week"] == df["Week"].min()]
     value = end_range["Week"].values[0]
     return value
 
 
 def write_to_file(input_file: str) -> None:
+    """input_file - файл с набором данных
+    возвращает ничего"""
     df = formatted_file(input_file)
     range_of_years_list = range_of_years(input_file)
 
@@ -66,3 +76,6 @@ def write_to_file(input_file: str) -> None:
 if __name__ == "__main__":
     file = "C:/Users/esh20/Desktop/dataset.csv"
     write_to_file(file)
+
+
+print("I wanna be a designer...or doctor...")

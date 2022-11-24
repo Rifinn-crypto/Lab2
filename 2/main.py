@@ -3,6 +3,8 @@ from typing import NoReturn
 
 
 def formatted_file(input_file: str) -> pd.DataFrame:
+    """Форматирование файла
+    Возвращает фрейм данных с добавлением столбцов"""
     df = pd.read_csv(file)
 
     df["Day"] = pd.to_datetime(df.Day, format="%Y-%m-%d")
@@ -12,6 +14,8 @@ def formatted_file(input_file: str) -> pd.DataFrame:
 
 
 def write_to_file(input_file: str, year: int) -> NoReturn:
+    """input_file - файл с набором данных
+    возвращает ничего"""
     df = formatted_file(input_file)
 
     df = df[df["Year"] == year]
@@ -22,6 +26,9 @@ def write_to_file(input_file: str, year: int) -> NoReturn:
 
 
 def range_of_date(input_file: str) -> list :
+    """Диапазон значений временных в наборе данных
+    input_file - файл с набором данных
+    возвращает список с первым и последним годом в наборе данных"""
     df = formatted_file(input_file)
 
     start_range = df["Year"].iat[0]
@@ -37,3 +44,4 @@ if __name__ == "__main__":
     for years in range(range_of_years[0], range_of_years[1] - 1, -1):
         write_to_file(file, years)
 
+print("Pls, htlp me, pls hel me.. pls... help... this night is very...very hard..")

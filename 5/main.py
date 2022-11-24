@@ -5,10 +5,12 @@ import os
 class DateIterator:
 
     def __init__(self):
+        """Инициация класса"""
         self.counter = 0
         self.df = pd.read_csv("C:/Users/esh20/Desktop/dataset.csv")
 
     def __next__(self) -> tuple:
+        """кортеж с данными и обменным курсом для этих данных"""
         if os.path.exists("C:/Users/esh20/Desktop/dataset.csv"):
             if self.counter == self.df.shape[0]:
                 raise StopIteration
@@ -28,6 +30,7 @@ class DateIteratorXY:
         self.yf = pd.read_csv("C:/Users/esh20/PycharmProjects/Lab2/1/Y.csv")
 
     def __next__(self) -> tuple:
+        """кортеж с данными и обменным курсом для этих данных"""
         if self.counter == self.xf.shape[0]:
             raise StopIteration
 
@@ -49,6 +52,7 @@ class DateIteratorYearOrWeek:
                 self.df = pd.concat([self.df, yf], ignore_index=True)
 
     def __next__(self) -> tuple:
+        """кортеж с данными и обменным курсом для этих данных"""
         if self.counter == self.df.shape[0]:
             raise StopIteration
         elif self.counter < self.df.shape[0]:
@@ -67,3 +71,12 @@ if __name__ == "__main__":
         obj = DateIteratorYearOrWeek("C:/Users/esh20/PycharmProjects/Lab2/2/")
         while True:
             print(next(obj))
+    except StopIteration:
+        print("Out of bounds")
+
+
+
+
+
+
+        print("Help me... I'm dying in this cowork")
