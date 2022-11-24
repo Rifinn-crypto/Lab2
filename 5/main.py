@@ -10,7 +10,7 @@ class DateIterator:
         self.df = pd.read_csv("C:/Users/esh20/Desktop/dataset.csv")
 
     def __next__(self) -> tuple:
-        """кортеж с данными и обменным курсом для этих данных"""
+        """кортеж с данными и обменным курсом для  этих данных"""
         if os.path.exists("C:/Users/esh20/Desktop/dataset.csv"):
             if self.counter == self.df.shape[0]:
                 raise StopIteration

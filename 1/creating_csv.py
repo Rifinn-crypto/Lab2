@@ -3,7 +3,7 @@ import pandas as pd
 
 def write_to_file(input_file: str, file_for_x: str, file_for_y: str) -> None:
     """Запуск файла с набором данных
-    file_for_x файл для первого стобца
+    file_for_x файл для  первого стобца
     file_for_y файл для второго столбца
     функция ничего не возвращает
     """

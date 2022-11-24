@@ -7,13 +7,18 @@ import autopep8
 
 
 def formatted_file(input_file: str) -> pd.DataFrame:
+    """Форматирование файла
+    Возвращает фрейм данных с добавлением столбцов"""
     df = pd.read_csv(input_file)
     df["Day"] = pd.to_datetime(df.Day, format="%Y-%m-%d")
     df["Day"] = df["Day"].dt.date
-    return d
+    return df
 
 
 def get_data(input_file: str, date: datetime.date) -> Union[numpy.float64, None]:
+    """input_file - файл с набором данных
+    date: необходимая дата
+    возвращает значение необходимой даты"""
     if os.path.exists(input_file):
 
         df = formatted_file(input_file)
@@ -26,6 +31,10 @@ def get_data(input_file: str, date: datetime.date) -> Union[numpy.float64, None]
 
 def get_data_xy(input_file_x: str, input_file_y: str,
                 date: datetime.date) -> Union[numpy.float64, None]:
+    """ input_file_x:Файл со столбцом "Data"
+     input_file_y: файл со столбцом "Exchange rate"
+     date: необходимая дата
+     возвращает значение необходимой даты"""
     if os.path.exists(input_file_x) and os.path.exists(input_file_y):
 
         df_x = pd.read_csv(input_file_x)
@@ -45,6 +54,9 @@ def get_data_xy(input_file_x: str, input_file_y: str,
 
 
 def get_data_from_week_and_years(input_directory: str, date: datetime.date) -> Union[numpy.float64, None]:
+    """ input_directory: каталог с отсортированным файлом по неделям\годам
+    date: необходимая дата
+    возвращает значение необходимой даты"""
     if os.path.exists(input_directory):
         for root, dirs, files in os.walk(input_directory):
             for filename in files[0: -1:]:
@@ -59,6 +71,7 @@ def get_data_from_week_and_years(input_directory: str, date: datetime.date) -> U
 
 
 def tuple_for_next_data() -> tuple:
+    """кортеж с данными и  обменным курсом для этих данных"""
     input_file = "C:/Users/esh20/Desktop/dataset.csv"
     if os.path.exists(input_file):
         df = pd.read_csv(input_file)
@@ -87,3 +100,8 @@ if __name__ == "__main__":
 
     except FileNotFoundError:
         print("No such file exists!")
+
+
+
+
+print("I lost my keys... ugh(>^<)")

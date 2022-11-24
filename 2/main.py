@@ -4,7 +4,7 @@ from typing import NoReturn
 
 def formatted_file(input_file: str) -> pd.DataFrame:
     """Форматирование файла
-    Возвращает фрейм данных с добавлением столбцов"""
+    Возвращает фрейм  данных с добавлением столбцов"""
     df = pd.read_csv(file)
 
     df["Day"] = pd.to_datetime(df.Day, format="%Y-%m-%d")

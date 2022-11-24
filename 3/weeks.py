@@ -41,7 +41,7 @@ def max_week(df: pd.DataFrame) -> int:
 
 
 def min_week(df: pd.DataFrame) -> int:
-    """Возвращает Максимальное количество недель за один год"""
+    """Возвращает Максимальное  количество недель за один год"""
     end_range = df[df["Week"] == df["Week"].min()]
     value = end_range["Week"].values[0]
     return value
